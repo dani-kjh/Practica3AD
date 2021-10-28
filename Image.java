@@ -41,7 +41,7 @@ public class Image {
         return description;
     }
 
-    public void setDescripcio(String description) {
+    public void setdescription(String description) {
         this.description = description;
     }
 
