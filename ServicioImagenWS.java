@@ -86,4 +86,141 @@ public class ServicioImagenWS {
         con.cerrarconexion();
         return result;
     }
+    
+    /**
+     * Web service operation
+     * @param title
+     * @return 
+     */
+    @WebMethod(operationName = "searchByTitle")
+    public List searchByTitle(@WebParam(name = "title") String title) {
+        ModificacionyConsulta con = new ModificacionyConsulta();
+        ResultSet rs = con.search(title, "", "", "", "");
+        List<Image> result = new ArrayList<Image>();
+        try {
+            while (rs.next()){
+                Image aux = new Image();
+                aux.setid(rs.getInt("id"));
+                aux.settitle(rs.getString("title"));
+                aux.setdescription(rs.getString("description"));
+                aux.setkeywords(rs.getString("keywords"));
+                aux.setauthor(rs.getString("author"));
+                aux.setcapture_date(rs.getString("capture_date"));
+                aux.setstorage_date(rs.getString("storage_date"));
+                aux.setcreator(rs.getString("creator"));
+                aux.setfilename(rs.getString("filename"));
+                
+                result.add(aux);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioImagenWS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            con.cerrarconexion();
+        }
+        return result;
+
+    }
+
+    /**
+     * Web service operation
+     * @param creaDate
+     * @return 
+     */
+    @WebMethod(operationName = "searchByCreaDate")
+    public List searchByCreaDate(@WebParam(name = "creaDate") String creaDate) {
+        ModificacionyConsulta con = new ModificacionyConsulta();
+        ResultSet rs = con.search("", "", "", "", creaDate);
+        List<Image> result = new ArrayList<Image>();
+        try {
+            while (rs.next()){
+                Image aux = new Image();
+                aux.setid(rs.getInt("id"));
+                aux.settitle(rs.getString("title"));
+                aux.setdescription(rs.getString("description"));
+                aux.setkeywords(rs.getString("keywords"));
+                aux.setauthor(rs.getString("author"));
+                aux.setcapture_date(rs.getString("capture_date"));
+                aux.setstorage_date(rs.getString("storage_date"));
+                aux.setcreator(rs.getString("creator"));
+                aux.setfilename(rs.getString("filename"));
+                
+                result.add(aux);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioImagenWS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            con.cerrarconexion();
+        }
+        return result;
+    }
+
+    /**
+     * Web service operation
+     * @param keywords
+     * @return 
+     */
+    @WebMethod(operationName = "searchByKeywords")
+    public List searchByKeywords(@WebParam(name = "keywords") String keywords) {
+         ModificacionyConsulta con = new ModificacionyConsulta();
+        ResultSet rs = con.search("", "", "", keywords, "");
+        List<Image> result = new ArrayList<Image>();
+        try {
+            while (rs.next()){
+                Image aux = new Image();
+                aux.setid(rs.getInt("id"));
+                aux.settitle(rs.getString("title"));
+                aux.setdescription(rs.getString("description"));
+                aux.setkeywords(rs.getString("keywords"));
+                aux.setauthor(rs.getString("author"));
+                aux.setcapture_date(rs.getString("capture_date"));
+                aux.setstorage_date(rs.getString("storage_date"));
+                aux.setcreator(rs.getString("creator"));
+                aux.setfilename(rs.getString("filename"));
+                
+                result.add(aux);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioImagenWS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            con.cerrarconexion();
+        }
+        return result;
+    }
+
+    /**
+     * Web service operation
+     * @param author
+     * @return 
+     */
+    @WebMethod(operationName = "searchByAuthor")
+    public List searchByAuthor(@WebParam(name = "author") String author) {
+       ModificacionyConsulta con = new ModificacionyConsulta();
+        ResultSet rs = con.search("", "", author, "", "");
+        List<Image> result = new ArrayList<Image>();
+        try {
+            while (rs.next()){
+                Image aux = new Image();
+                aux.setid(rs.getInt("id"));
+                aux.settitle(rs.getString("title"));
+                aux.setdescription(rs.getString("description"));
+                aux.setkeywords(rs.getString("keywords"));
+                aux.setauthor(rs.getString("author"));
+                aux.setcapture_date(rs.getString("capture_date"));
+                aux.setstorage_date(rs.getString("storage_date"));
+                aux.setcreator(rs.getString("creator"));
+                aux.setfilename(rs.getString("filename"));
+                
+                result.add(aux);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioImagenWS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            con.cerrarconexion();
+        }
+        return result;
+    }
 }
