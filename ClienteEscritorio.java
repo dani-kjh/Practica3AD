@@ -211,8 +211,8 @@ public class ClienteEscritorio {
                             System.out.println(" ");
 
                             break;
-                            /*
-                        case 2:
+                            
+                             case 2:
                             System.out.println("Introdueix el títol");
                             String entradaaux2 = sc2.nextLine();
                             List<Object> resultataux2 = new ArrayList<Object>();
@@ -222,16 +222,17 @@ public class ClienteEscritorio {
                             while (itaux2.hasNext()) {
                                 Object imageaux2 = itaux2.next();
                                 Image mobjaux2 = Image.class.cast(imageaux2);
-                                System.out.println("Títol: " + mobjaux2.gettitle());
-                                System.out.println("Descripció: " + mobjaux2.getdescription());
-                                System.out.println("Autor: " + mobjaux2.getauthor());
-                                System.out.println("Data creació: " + mobjaux2.getcapture_date());
-                                System.out.println("Tags: " + mobjaux2.getkeywords());
-                                System.out.println("Username: " + mobjaux2.getUsername());
+                                System.out.println("Títol: " + mobjaux2.getTitle());
+                                System.out.println("Descripció: " + mobjaux2.getDescription());
+                                System.out.println("Autor: " + mobjaux2.getAuthor());
+                                System.out.println("Data creació: " + mobjaux2.getCaptureDate());
+                                System.out.println("Tags: " + mobjaux2.getKeywords());
                                 System.out.println(" ");
                             }
                             break;
-                        case 3:
+                            
+                            
+                            case 3:
                             System.out.println("Introdueix l'autor");
                             String entradaaux3 = sc2.nextLine();
                             List<Object> resultataux3 = new ArrayList<Object>();
@@ -241,17 +242,16 @@ public class ClienteEscritorio {
                             while (itaux3.hasNext()) {
                                 Object imageaux2 = itaux3.next();
                                 Image mobjaux2 = Image.class.cast(imageaux2);
-                                System.out.println("Títol: " + mobjaux2.gettitle());
-                                System.out.println("Descripció: " + mobjaux2.getdescription());
-                                System.out.println("Autor: " + mobjaux2.getauthor());
-                                System.out.println("Data creació: " + mobjaux2.getcapture_date());
-                                System.out.println("Tags: " + mobjaux2.getkeywords());
-                                System.out.println("Username: " + mobjaux2.getUsername());
+                                System.out.println("Títol: " + mobjaux2.getTitle());
+                                System.out.println("Descripció: " + mobjaux2.getDescription());
+                                System.out.println("Autor: " + mobjaux2.getAuthor());
+                                System.out.println("Data creació: " + mobjaux2.getCaptureDate());
+                                System.out.println("Tags: " + mobjaux2.getKeywords());
                                 System.out.println(" ");
 
                             }
                             break;
-                        case 4:
+                            case 4:
                             System.out.println("Introdueix el tag");
                             String entradaaux4 = sc2.nextLine();
                             List<Object> resultataux4 = new ArrayList<Object>();
@@ -261,16 +261,16 @@ public class ClienteEscritorio {
                             while (itaux4.hasNext()) {
                                 Object imageaux2 = itaux4.next();
                                 Image mobjaux2 = Image.class.cast(imageaux2);
-                                System.out.println("Títol: " + mobjaux2.gettitle());
-                                System.out.println("Descripció: " + mobjaux2.getdescription());
-                                System.out.println("Autor: " + mobjaux2.getauthor());
-                                System.out.println("Data creació: " + mobjaux2.getcapture_date());
-                                System.out.println("Tags: " + mobjaux2.getkeywords());
-                                System.out.println("Username: " + mobjaux2.getUsername());
+                                System.out.println("Títol: " + mobjaux2.getTitle());
+                                System.out.println("Descripció: " + mobjaux2.getDescription());
+                                System.out.println("Autor: " + mobjaux2.getAuthor());
+                                System.out.println("Data creació: " + mobjaux2.getCaptureDate());
+                                System.out.println("Tags: " + mobjaux2.getKeywords());
                                 System.out.println(" ");
                             }
                             break;
-                        case 5:
+                            
+                            case 5:
                             System.out.println("Introdueix la data de creació");
                             String entradaaux5 = sc2.nextLine();
                             List<Object> resultataux5 = new ArrayList<Object>();
@@ -280,20 +280,22 @@ public class ClienteEscritorio {
                             while (itaux5.hasNext()) {
                                 Object imageaux2 = itaux5.next();
                                 Image mobjaux2 = Image.class.cast(imageaux2);
-                                System.out.println("Títol: " + mobjaux2.gettitle());
-                                System.out.println("Descripció: " + mobjaux2.getdescription());
-                                System.out.println("Autor: " + mobjaux2.getauthor());
-                                System.out.println("Data creació: " + mobjaux2.getcapture_date());
-                                System.out.println("Tags: " + mobjaux2.getkeywords());
-                                System.out.println("Username: " + mobjaux2.getUsername());
+                                System.out.println("Títol: " + mobjaux2.getTitle());
+                                System.out.println("Descripció: " + mobjaux2.getDescription());
+                                System.out.println("Autor: " + mobjaux2.getAuthor());
+                                System.out.println("Data creació: " + mobjaux2.getCaptureDate());
+                                System.out.println("Tags: " + mobjaux2.getKeywords());
                                 System.out.println(" ");
                             }
                             break;
-                        case 6:
+                            
+                             case 6:
                             sortir = true;
                             break;
-*/
+
                     }
+                case 5:
+                    sortir = true;
                     break;
                     
             }
@@ -302,8 +304,6 @@ public class ClienteEscritorio {
     }
     
     private static java.util.List<java.lang.Object> listImages() {
-        
-        
         try { // Call Web Service Operation
             org.me.servicioimagen.ServicioImagenWS_Service service = new org.me.servicioimagen.ServicioImagenWS_Service();
             org.me.servicioimagen.ServicioImagenWS port = service.getServicioImagenWSPort();
@@ -328,6 +328,60 @@ public class ClienteEscritorio {
         return result;
     }
     
+     private static java.util.List<java.lang.Object> searchByTitle(java.lang.String title) {
+         try { 
+             org.me.servicioimagen.ServicioImagenWS_Service service = new org.me.servicioimagen.ServicioImagenWS_Service();
+             org.me.servicioimagen.ServicioImagenWS port = service.getServicioImagenWSPort();
+             java.util.List<java.lang.Object> result = port.searchByTitle(title);
+             
+             return result;
+         } catch (Exception ex) {
+             // TODO handle custom exceptions here
+         }
+         return null;
+    }
+     
+      private static java.util.List<java.lang.Object> searchByCreaDate(java.lang.String creaDate) {
+          try { // Call Web Service Operation
+              org.me.servicioimagen.ServicioImagenWS_Service service = new org.me.servicioimagen.ServicioImagenWS_Service();
+              org.me.servicioimagen.ServicioImagenWS port = service.getServicioImagenWSPort();
+              java.util.List<java.lang.Object> result = port.searchByCreaDate(creaDate);
+              
+              return result;
+          } catch (Exception ex) {
+              // TODO handle custom exceptions here
+          }
+          return null;
+    }
+      
+      private static java.util.List<java.lang.Object> searchByKeywords(java.lang.String keywords) {
+          try { // Call Web Service Operation
+              org.me.servicioimagen.ServicioImagenWS_Service service = new org.me.servicioimagen.ServicioImagenWS_Service();
+              org.me.servicioimagen.ServicioImagenWS port = service.getServicioImagenWSPort();
+              java.util.List<java.lang.Object> result = port.searchByKeywords(keywords);
+              
+              return result;
+          } catch (Exception ex) {
+              // TODO handle custom exceptions here
+          }
+          return null;
+    }
+      
+    private static java.util.List<java.lang.Object> searchByAuthor(java.lang.String author) {
+        
+        try { // Call Web Service Operation
+            org.me.servicioimagen.ServicioImagenWS_Service service = new org.me.servicioimagen.ServicioImagenWS_Service();
+            org.me.servicioimagen.ServicioImagenWS port = service.getServicioImagenWSPort();
+            java.util.List<java.lang.Object> result = port.searchByAuthor(author);
+            
+            return result;
+        } catch (Exception ex) {
+            // TODO handle custom exceptions here
+        }
+        return null;
+
+    }
+    
 /*
     private static int modifyImage(Image image) {
         server.FotOkWS_Service service = new server.FotOkWS_Service();
@@ -339,32 +393,6 @@ public class ClienteEscritorio {
         server.FotOkWS_Service service = new server.FotOkWS_Service();
         server.FotOkWS port = service.getFotOkWSPort();
         return port.registerImage(image);
-    }
-
-    private static java.util.List<java.lang.Object> searchByAuthor(java.lang.String author) {
-        server.FotOkWS_Service service = new server.FotOkWS_Service();
-        server.FotOkWS port = service.getFotOkWSPort();
-        return port.searchByAuthor(author);
-    }
-
-    private static java.util.List<java.lang.Object> searchByCreaDate(java.lang.String creaDate) {
-        server.FotOkWS_Service service = new server.FotOkWS_Service();
-        server.FotOkWS port = service.getFotOkWSPort();
-        return port.searchByCreaDate(creaDate);
-    }
-
-    
-
-    private static java.util.List<java.lang.Object> searchByKeywords(java.lang.String keywords) {
-        server.FotOkWS_Service service = new server.FotOkWS_Service();
-        server.FotOkWS port = service.getFotOkWSPort();
-        return port.searchByKeywords(keywords);
-    }
-
-    private static java.util.List<java.lang.Object> searchByTitle(java.lang.String title) {
-        server.FotOkWS_Service service = new server.FotOkWS_Service();
-        server.FotOkWS port = service.getFotOkWSPort();
-        return port.searchByTitle(title);
     }
 */
     }
