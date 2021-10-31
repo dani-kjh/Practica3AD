@@ -223,4 +223,101 @@ public class ServicioImagenWS {
         }
         return result;
     }
+    
+            /**
+     * Web service operation
+     * @param Image
+     * @return 
+     */
+    @WebMethod(operationName = "RegisterImage")
+    public int RegisterImage(@WebParam(name = "Image") Image Image) {
+        //TODO write your implementation code here:
+        ModificacionyConsulta connection = new ModificacionyConsulta();
+        
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            
+            //obtener parametros
+            String title = Image.gettitle();
+            String description = Image.getdescription();
+            String keywords = Image.getkeywords();
+            String author = Image.getauthor();
+            String capture_date = Image.getcapture_date();
+            String filename = Image.getfilename();
+            String nombreUsuarioActual = Image.getcreator();
+            connection.registrarImagen(title,description,keywords,author,nombreUsuarioActual, capture_date,filename);
+            
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return 1;
+        } finally{
+            connection.cerrarconexion();
+        }
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     * @param image
+     * @return 
+     */
+    @WebMethod(operationName = "ModifyImage")
+    public int ModifyImage(@WebParam(name = "image") Image image) {
+        //TODO write your implementation code here:
+        ModificacionyConsulta connection = new ModificacionyConsulta();
+        
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            
+            //obtener parametros
+            String title = image.gettitle();
+            String description = image.getdescription();
+            String keywords = image.getkeywords();
+            String author = image.getauthor();
+            String capture_date = image.getcapture_date();
+            String filename = image.getfilename();
+            String nombreUsuarioActual = image.getcreator();
+            int id = image.getid();
+            boolean error = connection.updateimagen(title, description, keywords, author, capture_date, id);
+            if(error) return 1;
+            
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return 1;
+            
+        } finally{
+            connection.cerrarconexion();
+        }
+        return 0;
+    }
+
+    /**
+     * Web service operation
+     * @param id
+     * @return 
+     */
+    @WebMethod(operationName = "DeleteImage")
+    public int DeleteImage(@WebParam(name = "id") int id) {
+        //TODO write your implementation code here:
+        ModificacionyConsulta connection = new ModificacionyConsulta();
+        
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            
+            String ID = Integer.toString(id);
+            String error = connection.eliminarImagen(ID);
+            
+            if(error.equals("null")) return 1; //error al eliminar
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return 1;
+            
+        } finally{
+            connection.cerrarconexion();
+        }
+        return 0;
+    }
 }
